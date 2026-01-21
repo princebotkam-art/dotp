@@ -13,15 +13,14 @@ CONFIG = {
     "admin_user_id": 7380687709,
     "api_url": "http://51.77.216.195/crapi/dgroup/viewstats",
     "api_token": "RFRTSDRSQnd4V4BEa5Nzd4JoUV2KZpOFimOEiGFnUVhCboODgVJk",
-    "check_interval": 3,
-    "records_per_request": 100,
-    "max_retries": 2,
+    "check_interval": 5,
+    "records_per_request": 50,
+    "max_retries": 3,
     "retry_delay": 2
 }
 
-# Country data - Full English names only (Extended list)
+# Country data
 COUNTRIES = {
-    # Original countries
     "Kyrgyzstan": {"short": "KG", "flag": "🇰🇬", "full": "Kyrgyzstan"},
     "Kenya": {"short": "KE", "flag": "🇰🇪", "full": "Kenya"},
     "Nigeria": {"short": "NG", "flag": "🇳🇬", "full": "Nigeria"},
@@ -33,72 +32,6 @@ COUNTRIES = {
     "Brazil": {"short": "BR", "flag": "🇧🇷", "full": "Brazil"},
     "Russia": {"short": "RU", "flag": "🇷🇺", "full": "Russia"},
     "USA": {"short": "US", "flag": "🇺🇸", "full": "USA"},
-    
-    # Newly added countries
-    "Afghanistan": {"short": "AF", "flag": "🇦🇫", "full": "Afghanistan"},
-    "Andorra": {"short": "AD", "flag": "🇦🇩", "full": "Andorra"},
-    "Angola": {"short": "AO", "flag": "🇦🇴", "full": "Angola"},
-    "Armenia": {"short": "AM", "flag": "🇦🇲", "full": "Armenia"},
-    "Azerbaijan": {"short": "AZ", "flag": "🇦🇿", "full": "Azerbaijan"},
-    "Barbados": {"short": "BB", "flag": "🇧🇧", "full": "Barbados"},
-    "Belarus": {"short": "BY", "flag": "🇧🇾", "full": "Belarus"},
-    "Belgium": {"short": "BE", "flag": "🇧🇪", "full": "Belgium"},
-    "Belize": {"short": "BZ", "flag": "🇧🇿", "full": "Belize"},
-    "Benin": {"short": "BJ", "flag": "🇧🇯", "full": "Benin"},
-    "Bhutan": {"short": "BT", "flag": "🇧🇹", "full": "Bhutan"},
-    "Bolivia": {"short": "BO", "flag": "🇧🇴", "full": "Bolivia"},
-    "Burkina Faso": {"short": "BF", "flag": "🇧🇫", "full": "Burkina Faso"},
-    "Costa Rica": {"short": "CR", "flag": "🇨🇷", "full": "Costa Rica"},
-    "Ecuador": {"short": "EC", "flag": "🇪🇨", "full": "Ecuador"},
-    "Ethiopia": {"short": "ET", "flag": "🇪🇹", "full": "Ethiopia"},
-    "Greece": {"short": "GR", "flag": "🇬🇷", "full": "Greece"},
-    "Honduras": {"short": "HN", "flag": "🇭🇳", "full": "Honduras"},
-    "Iran": {"short": "IR", "flag": "🇮🇷", "full": "Iran"},
-    "Israel": {"short": "IL", "flag": "🇮🇱", "full": "Israel"},
-    "Kazakhstan": {"short": "KZ", "flag": "🇰🇿", "full": "Kazakhstan"},
-    "Latvia": {"short": "LV", "flag": "🇱🇻", "full": "Latvia"},
-    "Lebanon": {"short": "LB", "flag": "🇱🇧", "full": "Lebanon"},
-    "Liberia": {"short": "LR", "flag": "🇱🇷", "full": "Liberia"},
-    "Libya": {"short": "LY", "flag": "🇱🇾", "full": "Libya"},
-    "Marshall Islands": {"short": "MH", "flag": "🇲🇭", "full": "Marshall Islands"},
-    "Mauritania": {"short": "MR", "flag": "🇲🇷", "full": "Mauritania"},
-    "Mauritius": {"short": "MU", "flag": "🇲🇺", "full": "Mauritius"},
-    "Mexico": {"short": "MX", "flag": "🇲🇽", "full": "Mexico"},
-    "Micronesia": {"short": "FM", "flag": "🇫🇲", "full": "Micronesia"},
-    "Moldova": {"short": "MD", "flag": "🇲🇩", "full": "Moldova"},
-    "Monaco": {"short": "MC", "flag": "🇲🇨", "full": "Monaco"},
-    "Mongolia": {"short": "MN", "flag": "🇲🇳", "full": "Mongolia"},
-    "Montenegro": {"short": "ME", "flag": "🇲🇪", "full": "Montenegro"},
-    "Morocco": {"short": "MA", "flag": "🇲🇦", "full": "Morocco"},
-    "Myanmar": {"short": "MM", "flag": "🇲🇲", "full": "Myanmar"},
-    "Nepal": {"short": "NP", "flag": "🇳🇵", "full": "Nepal"},
-    "Netherlands": {"short": "NL", "flag": "🇳🇱", "full": "Netherlands"},
-    "Norway": {"short": "NO", "flag": "🇳🇴", "full": "Norway"},
-    "Oman": {"short": "OM", "flag": "🇴🇲", "full": "Oman"},
-    "Peru": {"short": "PE", "flag": "🇵🇪", "full": "Peru"},
-    "Philippines": {"short": "PH", "flag": "🇵🇭", "full": "Philippines"},
-    "Romania": {"short": "RO", "flag": "🇷🇴", "full": "Romania"},
-    "Senegal": {"short": "SN", "flag": "🇸🇳", "full": "Senegal"},
-    "Serbia": {"short": "RS", "flag": "🇷🇸", "full": "Serbia"},
-    "Seychelles": {"short": "SC", "flag": "🇸🇨", "full": "Seychelles"},
-    "Sierra Leone": {"short": "SL", "flag": "🇸🇱", "full": "Sierra Leone"},
-    "Slovenia": {"short": "SI", "flag": "🇸🇮", "full": "Slovenia"},
-    "Solomon Islands": {"short": "SB", "flag": "🇸🇧", "full": "Solomon Islands"},
-    "Sri Lanka": {"short": "LK", "flag": "🇱🇰", "full": "Sri Lanka"},
-    "Sudan": {"short": "SD", "flag": "🇸🇩", "full": "Sudan"},
-    "Syria": {"short": "SY", "flag": "🇸🇾", "full": "Syria"},
-    "Tajikistan": {"short": "TJ", "flag": "🇹🇯", "full": "Tajikistan"},
-    "Tanzania": {"short": "TZ", "flag": "🇹🇿", "full": "Tanzania"},
-    "Thailand": {"short": "TH", "flag": "🇹🇭", "full": "Thailand"},
-    "Togo": {"short": "TG", "flag": "🇹🇬", "full": "Togo"},
-    "Tunisia": {"short": "TN", "flag": "🇹🇳", "full": "Tunisia"},
-    "Uruguay": {"short": "UY", "flag": "🇺🇾", "full": "Uruguay"},
-    "Uzbekistan": {"short": "UZ", "flag": "🇺🇿", "full": "Uzbekistan"},
-    "Vanuatu": {"short": "VU", "flag": "🇻🇺", "full": "Vanuatu"},
-    "Vatican City": {"short": "VA", "flag": "🇻🇦", "full": "Vatican City"},
-    "Venezuela": {"short": "VE", "flag": "🇻🇪", "full": "Venezuela"},
-    "Yemen": {"short": "YE", "flag": "🇾🇪", "full": "Yemen"},
-    "Zambia": {"short": "ZM", "flag": "🇿🇲", "full": "Zambia"},
     "Unknown": {"short": "XX", "flag": "🏳️", "full": "Unknown"}
 }
 
@@ -111,12 +44,14 @@ class OTPBot:
         self.bot_start_time = datetime.now()
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
             'Accept': 'application/json, text/plain, */*',
-            'Connection': 'keep-alive',
             'Accept-Language': 'en-US,en;q=0.9',
+            'Accept-Encoding': 'gzip, deflate',
+            'Connection': 'keep-alive',
+            'Content-Type': 'application/x-www-form-urlencoded',
         })
-        self.last_check_time = datetime.now() - timedelta(minutes=5)
+        self.api_params = None
         
     def log(self, message: str):
         """Log messages with timestamp"""
@@ -195,8 +130,9 @@ class OTPBot:
                 f"⏰ Uptime: {uptime_str}\n"
                 f"📊 Processed: {len(self.processed_messages)}\n"
                 f"📡 {last_check}\n"
-                f"🌍 Countries: {len(COUNTRIES)} supported\n"
-                f"⚡ Real-time: Every {CONFIG['check_interval']}s"
+                f"🌍 Countries: {len(COUNTRIES)-1} supported\n"
+                f"⚡ Real-time: Every {CONFIG['check_interval']}s\n"
+                f"🔧 API Status: {'Connected' if self.last_api_success else 'Not Connected'}"
             )
             self.send_group_message(message, reply_to=message_id)
                 
@@ -207,10 +143,14 @@ class OTPBot:
                 self.send_group_message("✅ Cache cleared - Bot will send only new OTPs", reply_to=message_id)
                 self.log("Cleared processed messages cache")
                 
-        elif command == "/countries":
-            # Show supported countries count
-            message = f"🌍 *Supported Countries:* {len(COUNTRIES)-1}\n⚡ Major countries detected automatically"
-            self.send_group_message(message, reply_to=message_id)
+        elif command == "/testapi":
+            if user_id == CONFIG["admin_user_id"]:
+                self.send_group_message("🔍 Testing API connection...", reply_to=message_id)
+                success, params = self.test_api_connection(True)
+                if success:
+                    self.send_group_message("✅ API connection successful!", reply_to=message_id)
+                else:
+                    self.send_group_message("❌ API connection failed", reply_to=message_id)
     
     def send_group_message(self, message: str, reply_to: int = None):
         """Send message to Telegram group"""
@@ -232,103 +172,225 @@ class OTPBot:
             self.log(f"Telegram send error: {e}")
             return False
     
-    def test_api_connection(self):
+    def test_api_connection(self, detailed=False):
         """Test API connection with different parameters"""
         self.log("🔍 Testing API connection...")
         
-        param_combinations = [
+        if detailed:
+            self.send_group_message("🔍 Testing API connection with different methods...")
+        
+        # Try different endpoints and parameters
+        test_cases = [
+            # Case 1: Basic token only
             {
-                "token": CONFIG["api_token"],
-                "dt1": (datetime.now() - timedelta(minutes=2)).strftime("%Y-%m-%d %H:%M:%S"),
-                "dt2": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                "records": 10
+                "method": "POST",
+                "data": {"token": CONFIG["api_token"]}
             },
+            # Case 2: With time range
             {
-                "token": CONFIG["api_token"],
-                "records": 10
+                "method": "POST",
+                "data": {
+                    "token": CONFIG["api_token"],
+                    "dt1": (datetime.now() - timedelta(minutes=10)).strftime("%Y-%m-%d %H:%M:%S"),
+                    "dt2": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                }
+            },
+            # Case 3: GET request
+            {
+                "method": "GET",
+                "params": {"token": CONFIG["api_token"]}
+            },
+            # Case 4: Different parameter names
+            {
+                "method": "POST",
+                "data": {
+                    "token": CONFIG["api_token"],
+                    "start_date": (datetime.now() - timedelta(minutes=5)).strftime("%Y-%m-%d %H:%M:%S"),
+                    "end_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "limit": 10
+                }
             }
         ]
         
-        for i, params in enumerate(param_combinations):
-            self.log(f"  Trying parameter set {i+1}: {list(params.keys())}")
+        for i, test_case in enumerate(test_cases):
+            method = test_case["method"]
+            self.log(f"  Test {i+1}: {method} request")
             
             try:
-                # Try POST
-                response = self.session.post(CONFIG["api_url"], data=params, timeout=5)
+                if method == "POST":
+                    response = self.session.post(
+                        CONFIG["api_url"],
+                        data=test_case["data"],
+                        timeout=10
+                    )
+                else:  # GET
+                    response = self.session.get(
+                        CONFIG["api_url"],
+                        params=test_case.get("params", test_case["data"]),
+                        timeout=10
+                    )
+                
+                self.log(f"    Status: {response.status_code}")
+                
                 if response.status_code == 200:
+                    self.log(f"    Response length: {len(response.text)} chars")
+                    
+                    # Try to parse JSON
                     try:
                         data = json.loads(response.text)
-                        if data.get("status") == "success":
-                            self.log(f"    ✅ SUCCESS with set {i+1}")
-                            return True, params
-                    except:
-                        pass
+                        self.log(f"    JSON parsed successfully")
+                        
+                        # Check if response contains expected data
+                        if isinstance(data, dict):
+                            if "status" in data and data["status"] == "success":
+                                self.log(f"    ✅ SUCCESS: status='success'")
+                                self.api_params = test_case
+                                return True, test_case
+                            elif "data" in data:
+                                self.log(f"    ✅ SUCCESS: has 'data' key")
+                                self.api_params = test_case
+                                return True, test_case
+                            elif len(data) > 0:
+                                self.log(f"    ✅ SUCCESS: non-empty dict")
+                                self.api_params = test_case
+                                return True, test_case
+                        elif isinstance(data, list) and len(data) > 0:
+                            self.log(f"    ✅ SUCCESS: non-empty list")
+                            self.api_params = test_case
+                            return True, test_case
+                        
+                        # If we got here but have valid JSON, still consider it success
+                        self.log(f"    ⚠️ Valid JSON but unexpected format")
+                        self.api_params = test_case
+                        return True, test_case
+                        
+                    except json.JSONDecodeError:
+                        # Check if response might be plain text with data
+                        if len(response.text) > 10 and not "<html" in response.text.lower():
+                            self.log(f"    ⚠️ Not JSON but might contain data")
+                            self.api_params = test_case
+                            return True, test_case
+                        else:
+                            self.log(f"    ❌ Invalid response format")
                 
-                time.sleep(1)
-                
+                elif response.status_code == 404:
+                    self.log(f"    ❌ 404 - Endpoint not found")
+                elif response.status_code == 403:
+                    self.log(f"    ❌ 403 - Forbidden (check token)")
+                elif response.status_code == 500:
+                    self.log(f"    ❌ 500 - Server error")
+                    
+            except requests.exceptions.Timeout:
+                self.log(f"    ❌ Timeout")
+            except requests.exceptions.ConnectionError:
+                self.log(f"    ❌ Connection error")
             except Exception as e:
-                self.log(f"    ❌ Error: {e}")
+                self.log(f"    ❌ Error: {type(e).__name__}: {str(e)}")
+            
+            time.sleep(1)
         
+        self.log("❌ All API tests failed")
         return False, None
     
     def get_otps_from_api(self) -> List[Dict]:
-        """Fetch OTPs from API - Real-time optimized version"""
+        """Fetch OTPs from API"""
         if not self.bot_active:
             return []
         
+        # If we don't have working params, try to find them
+        if not self.api_params:
+            self.log("⚠️ No API parameters, testing connection...")
+            success, params = self.test_api_connection()
+            if not success:
+                self.log("❌ API test failed, cannot fetch OTPs")
+                return []
+        
         try:
-            # Always check last 1 minute for real-time updates
+            # Use last 5 minutes for real-time updates
             dt2 = datetime.now()
-            dt1 = dt2 - timedelta(seconds=60)
+            dt1 = dt2 - timedelta(minutes=5)
             
-            params = {
-                "token": CONFIG["api_token"],
-                "dt1": dt1.strftime("%Y-%m-%d %H:%M:%S"),
-                "dt2": dt2.strftime("%Y-%m-%d %H:%M:%S"),
-                "records": CONFIG["records_per_request"]
-            }
+            # Prepare parameters based on what worked before
+            if self.api_params["method"] == "POST":
+                params = self.api_params["data"].copy()
+                # Add time parameters if they're expected
+                if "dt1" in params or "start_date" in params:
+                    if "dt1" in params:
+                        params["dt1"] = dt1.strftime("%Y-%m-%d %H:%M:%S")
+                        params["dt2"] = dt2.strftime("%Y-%m-%d %H:%M:%S")
+                    elif "start_date" in params:
+                        params["start_date"] = dt1.strftime("%Y-%m-%d %H:%M:%S")
+                        params["end_date"] = dt2.strftime("%Y-%m-%d %H:%M:%S")
+                
+                response = self.session.post(CONFIG["api_url"], data=params, timeout=10)
+            else:  # GET
+                params = self.api_params.get("params", self.api_params["data"]).copy()
+                response = self.session.get(CONFIG["api_url"], params=params, timeout=10)
             
-            # Try POST first
-            response = self.session.post(CONFIG["api_url"], data=params, timeout=8)
+            self.log(f"📡 API request to: {CONFIG['api_url']}")
+            self.log(f"📊 Method: {self.api_params['method']}")
             
             if response.status_code == 200:
+                self.log(f"✅ HTTP 200 OK")
+                
                 try:
                     data = json.loads(response.text)
+                    self.last_api_success = datetime.now().strftime("%H:%M:%S")
+                    self.api_error_count = 0
+                    
+                    # Parse different response formats
+                    records = []
                     
                     if isinstance(data, dict):
-                        if data.get("status") == "success":
-                            records = data.get("data", [])
-                            self.log(f"✅ Found {len(records)} records")
-                            self.last_api_success = datetime.now().strftime("%H:%M:%S")
-                            self.api_error_count = 0
-                            return self.filter_new_records(records)
+                        # Format 1: status = "success", data = [...]
+                        if data.get("status") == "success" and isinstance(data.get("data"), list):
+                            records = data["data"]
+                            self.log(f"📊 Found {len(records)} records (status:success)")
                         
+                        # Format 2: direct "data" key
                         elif "data" in data and isinstance(data["data"], list):
-                            records = data.get("data", [])
-                            self.log(f"✅ Found {len(records)} records")
-                            self.last_api_success = datetime.now().strftime("%H:%M:%S")
-                            self.api_error_count = 0
-                            return self.filter_new_records(records)
+                            records = data["data"]
+                            self.log(f"📊 Found {len(records)} records (has data key)")
+                        
+                        # Format 3: other possible keys
+                        else:
+                            for key, value in data.items():
+                                if isinstance(value, list):
+                                    # Check if this looks like OTP data
+                                    if len(value) > 0 and isinstance(value[0], dict):
+                                        if any(k in value[0] for k in ["num", "phone", "message"]):
+                                            records = value
+                                            self.log(f"📊 Found {len(records)} records in key '{key}'")
+                                            break
                     
                     elif isinstance(data, list):
-                        self.log(f"✅ Found {len(data)} records")
-                        self.last_api_success = datetime.now().strftime("%H:%M:%S")
-                        self.api_error_count = 0
-                        return self.filter_new_records(data)
+                        records = data
+                        self.log(f"📊 Found {len(records)} records (direct list)")
+                    
+                    if records:
+                        return self.filter_new_records(records)
+                    else:
+                        self.log("⚠️ No records found in response")
+                        return []
                         
-                except json.JSONDecodeError:
-                    self.log("⚠️ Response not JSON")
+                except json.JSONDecodeError as e:
+                    self.log(f"❌ JSON parse error: {e}")
+                    self.log(f"📄 Response text: {response.text[:200]}...")
+                    self.api_error_count += 1
+                    return []
             
-            self.api_error_count += 1
-            return []
+            else:
+                self.log(f"❌ HTTP {response.status_code}")
+                self.api_error_count += 1
+                return []
                 
         except Exception as e:
-            self.log(f"❌ API Error: {e}")
+            self.log(f"❌ API Error: {type(e).__name__}: {str(e)}")
             self.api_error_count += 1
             return []
     
     def filter_new_records(self, records: List[Dict]) -> List[Dict]:
-        """Filter only records that arrived after bot started"""
+        """Filter only new records"""
         filtered = []
         
         for record in records:
@@ -336,229 +398,133 @@ class OTPBot:
             message_text = record.get("message", "")
             phone = record.get("num", "")
             
-            # Create unique ID for each message
-            unique_id = f"{phone}_{record_time_str}_{hash(message_text[:50])}"
+            # Create unique ID
+            if message_text and phone:
+                unique_id = f"{phone}_{hash(message_text[:100])}"
+            elif message_text:
+                unique_id = f"{hash(message_text[:100])}"
+            elif phone:
+                unique_id = f"{phone}_{record_time_str}"
+            else:
+                continue
             
             if unique_id not in self.processed_messages:
                 filtered.append(record)
         
+        self.log(f"📊 After filtering: {len(filtered)} new records")
         return filtered
     
     def detect_country_from_number(self, phone_number: str) -> str:
-        """Detect country from phone number - Enhanced with all countries"""
+        """Detect country from phone number"""
         if not phone_number or phone_number == "Unknown":
             return "Unknown"
             
         num_str = str(phone_number).strip()
         
-        # Remove any plus sign and non-digits
+        # Clean the number
         if num_str.startswith('+'):
             num_str = num_str[1:]
         
-        num_str = ''.join(filter(str.isdigit, num_str))
+        digits = ''.join(filter(str.isdigit, num_str))
         
-        if not num_str:
+        if not digits:
             return "Unknown"
         
-        # Extended country prefixes
-        country_prefixes = {
-            # Asia
-            '93': 'Afghanistan',
+        # Country prefixes
+        prefixes = {
+            '996': 'Kyrgyzstan',
+            '254': 'Kenya',
             '91': 'India',
+            '234': 'Nigeria',
             '92': 'Pakistan',
             '880': 'Bangladesh',
             '62': 'Indonesia',
             '84': 'Vietnam',
-            '95': 'Myanmar',
-            '977': 'Nepal',
-            '94': 'Sri Lanka',
-            '66': 'Thailand',
-            '98': 'Iran',
-            '972': 'Israel',
-            '961': 'Lebanon',
-            '63': 'Philippines',
+            '55': 'Brazil',
+            '7': 'Russia',
+            '1': 'USA',
+            '20': 'Egypt',
+            '27': 'South Africa',
+            '33': 'France',
+            '34': 'Spain',
+            '39': 'Italy',
+            '44': 'UK',
+            '49': 'Germany',
             '81': 'Japan',
             '82': 'South Korea',
             '86': 'China',
-            '60': 'Malaysia',
-            '65': 'Singapore',
-            '7': 'Kazakhstan',  # Also Russia, but Kazakhstan priority
-            '996': 'Kyrgyzstan',
-            '992': 'Tajikistan',
-            '998': 'Uzbekistan',
-            '855': 'Cambodia',
-            '856': 'Laos',
-            '880': 'Bangladesh',
-            
-            # Africa
-            '254': 'Kenya',
-            '234': 'Nigeria',
-            '27': 'South Africa',
-            '20': 'Egypt',
-            '212': 'Morocco',
-            '216': 'Tunisia',
-            '251': 'Ethiopia',
-            '255': 'Tanzania',
-            '233': 'Ghana',
-            '229': 'Benin',
-            '226': 'Burkina Faso',
-            '257': 'Burundi',
-            '235': 'Chad',
-            '242': 'Congo',
-            '243': 'DR Congo',
-            '240': 'Equatorial Guinea',
-            '291': 'Eritrea',
-            '220': 'Gambia',
-            '233': 'Ghana',
-            '224': 'Guinea',
-            '245': 'Guinea-Bissau',
-            '225': 'Ivory Coast',
-            '231': 'Liberia',
-            '218': 'Libya',
-            '261': 'Madagascar',
-            '265': 'Malawi',
-            '223': 'Mali',
-            '222': 'Mauritania',
-            '230': 'Mauritius',
-            '258': 'Mozambique',
-            '227': 'Niger',
-            '250': 'Rwanda',
-            '221': 'Senegal',
-            '232': 'Sierra Leone',
-            '252': 'Somalia',
-            '211': 'South Sudan',
-            '249': 'Sudan',
-            '255': 'Tanzania',
-            '228': 'Togo',
-            '256': 'Uganda',
-            '260': 'Zambia',
-            '263': 'Zimbabwe',
-            
-            # Europe
-            '376': 'Andorra',
-            '375': 'Belarus',
-            '32': 'Belgium',
-            '359': 'Bulgaria',
-            '385': 'Croatia',
-            '357': 'Cyprus',
-            '420': 'Czech Republic',
-            '45': 'Denmark',
-            '372': 'Estonia',
-            '358': 'Finland',
-            '33': 'France',
-            '995': 'Georgia',
-            '49': 'Germany',
-            '30': 'Greece',
-            '36': 'Hungary',
-            '354': 'Iceland',
-            '353': 'Ireland',
-            '39': 'Italy',
-            '371': 'Latvia',
-            '370': 'Lithuania',
-            '352': 'Luxembourg',
-            '356': 'Malta',
-            '373': 'Moldova',
-            '377': 'Monaco',
-            '382': 'Montenegro',
-            '31': 'Netherlands',
-            '47': 'Norway',
-            '48': 'Poland',
-            '351': 'Portugal',
-            '40': 'Romania',
-            '7': 'Russia',
-            '381': 'Serbia',
-            '421': 'Slovakia',
-            '386': 'Slovenia',
-            '34': 'Spain',
-            '46': 'Sweden',
-            '41': 'Switzerland',
             '90': 'Turkey',
-            '380': 'Ukraine',
-            '44': 'United Kingdom',
-            '379': 'Vatican City',
-            
-            # North America
-            '1': 'USA',  # Also Canada, but USA priority
-            '1': 'Canada',
-            '506': 'Costa Rica',
-            '53': 'Cuba',
-            '1809': 'Dominican Republic',
-            '1829': 'Dominican Republic',
-            '1849': 'Dominican Republic',
-            '502': 'Guatemala',
-            '504': 'Honduras',
-            '1876': 'Jamaica',
-            '52': 'Mexico',
-            '505': 'Nicaragua',
-            '507': 'Panama',
-            '1787': 'Puerto Rico',
-            '1939': 'Puerto Rico',
-            '1868': 'Trinidad and Tobago',
-            '501': 'Belize',
-            
-            # South America
-            '54': 'Argentina',
-            '591': 'Bolivia',
-            '55': 'Brazil',
-            '56': 'Chile',
-            '57': 'Colombia',
-            '593': 'Ecuador',
-            '592': 'Guyana',
-            '595': 'Paraguay',
-            '51': 'Peru',
-            '597': 'Suriname',
-            '598': 'Uruguay',
-            '58': 'Venezuela',
-            
-            # Oceania
-            '61': 'Australia',
-            '672': 'Norfolk Island',
-            '677': 'Solomon Islands',
-            '679': 'Fiji',
-            '682': 'Cook Islands',
-            '685': 'Samoa',
-            '686': 'Kiribati',
-            '687': 'New Caledonia',
-            '689': 'French Polynesia',
-            '691': 'Micronesia',
-            '692': 'Marshall Islands',
-            '850': 'North Korea',
-            '852': 'Hong Kong',
-            '853': 'Macau',
-            '670': 'Timor-Leste',
-            '680': 'Palau',
-            '683': 'Niue',
-            '688': 'Tuvalu',
-            '690': 'Tokelau',
-            '676': 'Tonga',
-            '678': 'Vanuatu',
-            
-            # Middle East
-            '973': 'Bahrain',
-            '20': 'Egypt',
+            '93': 'Afghanistan',
+            '94': 'Sri Lanka',
+            '95': 'Myanmar',
             '98': 'Iran',
-            '964': 'Iraq',
-            '962': 'Jordan',
-            '965': 'Kuwait',
-            '961': 'Lebanon',
-            '968': 'Oman',
-            '974': 'Qatar',
-            '966': 'Saudi Arabia',
-            '963': 'Syria',
-            '971': 'United Arab Emirates',
-            '967': 'Yemen',
-            '972': 'Israel',
-            '970': 'Palestine',
+            '212': 'Morocco',
+            '213': 'Algeria',
+            '216': 'Tunisia',
+            '218': 'Libya',
+            '220': 'Gambia',
+            '221': 'Senegal',
+            '222': 'Mauritania',
+            '223': 'Mali',
+            '224': 'Guinea',
+            '225': 'Ivory Coast',
+            '226': 'Burkina Faso',
+            '227': 'Niger',
+            '228': 'Togo',
+            '229': 'Benin',
+            '230': 'Mauritius',
+            '231': 'Liberia',
+            '232': 'Sierra Leone',
+            '233': 'Ghana',
+            '234': 'Nigeria',
+            '235': 'Chad',
+            '236': 'Central African Republic',
+            '237': 'Cameroon',
+            '238': 'Cape Verde',
+            '239': 'Sao Tome and Principe',
+            '240': 'Equatorial Guinea',
+            '241': 'Gabon',
+            '242': 'Republic of the Congo',
+            '243': 'DR Congo',
+            '244': 'Angola',
+            '245': 'Guinea-Bissau',
+            '246': 'British Indian Ocean Territory',
+            '247': 'Ascension Island',
+            '248': 'Seychelles',
+            '249': 'Sudan',
+            '250': 'Rwanda',
+            '251': 'Ethiopia',
+            '252': 'Somalia',
+            '253': 'Djibouti',
+            '254': 'Kenya',
+            '255': 'Tanzania',
+            '256': 'Uganda',
+            '257': 'Burundi',
+            '258': 'Mozambique',
+            '260': 'Zambia',
+            '261': 'Madagascar',
+            '262': 'Reunion',
+            '263': 'Zimbabwe',
+            '264': 'Namibia',
+            '265': 'Malawi',
+            '266': 'Lesotho',
+            '267': 'Botswana',
+            '268': 'Swaziland',
+            '269': 'Comoros',
+            '290': 'Saint Helena',
+            '291': 'Eritrea',
+            '297': 'Aruba',
+            '298': 'Faroe Islands',
+            '299': 'Greenland'
         }
         
-        # Check for exact matches first (longer prefixes first)
-        sorted_prefixes = sorted(country_prefixes.items(), key=lambda x: len(x[0]), reverse=True)
+        # Check prefixes from longest to shortest
+        sorted_prefixes = sorted(prefixes.items(), key=lambda x: len(x[0]), reverse=True)
         
         for prefix, country in sorted_prefixes:
-            if num_str.startswith(prefix):
+            if digits.startswith(prefix):
                 return country
         
-        # If no match found
         return "Unknown"
     
     def extract_otp_code(self, message: str) -> str:
@@ -566,12 +532,12 @@ class OTPBot:
         if not message:
             return "N/A"
         
-        # Remove extra spaces
+        # Clean message
         message = ' '.join(message.split())
         
-        # Common patterns
+        # Common OTP patterns
         patterns = [
-            r'(\d{3}[-]?\d{3})',  # 123-456 or 123456
+            r'(\d{3}[-.\s]?\d{3})',  # 123-456, 123.456, 123 456
             r'\b\d{4,8}\b',  # 4-8 digit codes
             r'code[\s:]*[#]?(\d{4,8})',
             r'kode[\s:]*[#]?(\d{4,8})',
@@ -582,16 +548,27 @@ class OTPBot:
             r'(\d{4,8})[\s]*is[\s]*your',
             r'your[\s]*code[\s]*is[\s]*(\d{4,8})',
             r'(\d{4,8})[\s]*code',
-            r'code[\s]*is[\s]*(\d{4,8})'
+            r'code[\s]*is[\s]*(\d{4,8})',
+            r'(\d{4,8})[\s]*for[\s]*verification',
+            r'verification[\s]*code[\s]*(\d{4,8})'
         ]
         
         for pattern in patterns:
             matches = re.findall(pattern, message, re.IGNORECASE)
             if matches:
                 code = matches[0]
-                if "-" in code:
-                    return code.replace("-", "")
-                return code
+                # Clean the code
+                code = ''.join(filter(str.isdigit, str(code)))
+                if 4 <= len(code) <= 8:
+                    return code
+        
+        # Try to find any 4-8 digit number
+        all_numbers = re.findall(r'\d+', message)
+        for num in all_numbers:
+            if 4 <= len(num) <= 8:
+                # Check if it's not a year or common number
+                if not (num.startswith('19') or num.startswith('20') or len(num) > 8):
+                    return num
         
         return "N/A"
     
@@ -617,30 +594,35 @@ class OTPBot:
         message_lower = message.lower()
         cli_lower = cli.lower() if cli else ""
         
-        if 'whatsapp' in cli_lower or 'whatsapp' in message_lower or 'wa' in message_lower:
-            return "WhatsApp"
-        elif 'facebook' in cli_lower or 'facebook' in message_lower or 'fb' in message_lower:
-            return "Facebook"
-        elif 'telegram' in cli_lower or 'telegram' in message_lower or 'tg' in message_lower:
-            return "Telegram"
-        elif 'google' in message_lower or 'gmail' in message_lower:
-            return "Google"
-        elif 'instagram' in message_lower or 'insta' in message_lower:
-            return "Instagram"
-        elif 'tiktok' in message_lower or '抖音' in message_lower:
-            return "TikTok"
-        elif 'twitter' in message_lower or 'x.com' in message_lower:
-            return "Twitter"
-        elif 'amazon' in message_lower:
-            return "Amazon"
-        elif 'paypal' in message_lower:
-            return "PayPal"
-        elif 'snapchat' in message_lower:
-            return "Snapchat"
-        elif 'linkedin' in message_lower:
-            return "LinkedIn"
-        else:
-            return "SMS"
+        platform_indicators = {
+            "WhatsApp": ["whatsapp", "wa ", "wa."],
+            "Facebook": ["facebook", "fb ", "fb.", "meta"],
+            "Telegram": ["telegram", "tg ", "tg."],
+            "Google": ["google", "gmail", "youtube"],
+            "Instagram": ["instagram", "insta"],
+            "Twitter": ["twitter", "x.com", "tweet"],
+            "Amazon": ["amazon"],
+            "PayPal": ["paypal"],
+            "TikTok": ["tiktok", "抖音"],
+            "Snapchat": ["snapchat"],
+            "LinkedIn": ["linkedin"],
+            "Apple": ["apple", "icloud"],
+            "Microsoft": ["microsoft", "outlook", "hotmail"],
+            "Yahoo": ["yahoo"],
+            "Netflix": ["netflix"],
+            "Uber": ["uber"],
+            "Grab": ["grab"],
+            "Gojek": ["gojek"],
+            "Bank": ["bank", "atm", "credit", "debit", "visa", "mastercard"],
+            "Government": ["gov", "government", "irs", "tax"]
+        }
+        
+        for platform, keywords in platform_indicators.items():
+            for keyword in keywords:
+                if keyword in message_lower or keyword in cli_lower:
+                    return platform
+        
+        return "SMS"
     
     def create_otp_message(self, otp_data: Dict) -> Optional[str]:
         """Create formatted OTP message"""
@@ -683,12 +665,21 @@ class OTPBot:
                 "Telegram": "📨",
                 "Google": "🔍",
                 "Instagram": "📸",
-                "TikTok": "🎵",
                 "Twitter": "🐦",
                 "Amazon": "🛒",
                 "PayPal": "💳",
+                "TikTok": "🎵",
                 "Snapchat": "👻",
                 "LinkedIn": "💼",
+                "Apple": "🍎",
+                "Microsoft": "🪟",
+                "Yahoo": "📧",
+                "Netflix": "🎬",
+                "Uber": "🚗",
+                "Grab": "🚖",
+                "Gojek": "🏍️",
+                "Bank": "🏦",
+                "Government": "🏛️",
                 "SMS": "💬"
             }.get(platform, "📲")
             
@@ -701,8 +692,8 @@ class OTPBot:
                 f"🌍 *Country:* {country_info['flag']} {country_info['full']}\n"
                 f"⚡ *Freshness:* Just now{freshness}\n\n"
                 f"🔐 *OTP Code:* `{otp_code}`\n\n"
-                f"📝 *Message Preview:*\n"
-                f"`{message_text[:120]}{'...' if len(message_text) > 120 else ''}`"
+                f"📝 *Message:*\n"
+                f"`{message_text[:150]}{'...' if len(message_text) > 150 else ''}`"
             )
             
             return formatted_message
@@ -733,12 +724,12 @@ class OTPBot:
                 "disable_web_page_preview": True
             }
             
-            response = requests.post(url, json=payload, timeout=8)
+            response = requests.post(url, json=payload, timeout=10)
             
             if response.status_code == 200:
                 return True
             else:
-                self.log(f"❌ Telegram error: {response.status_code}")
+                self.log(f"❌ Telegram error: {response.status_code} - {response.text}")
                 return False
                 
         except Exception as e:
@@ -746,13 +737,16 @@ class OTPBot:
             return False
     
     def process_otps(self):
-        """Process OTPs - Real-time optimized"""
+        """Process OTPs"""
         if not self.bot_active:
             return 0
         
+        self.log(f"🔄 Checking for new OTPs...")
         otp_list = self.get_otps_from_api()
         
         if not otp_list:
+            if self.api_error_count > 0:
+                self.log(f"⚠️ API error count: {self.api_error_count}")
             return 0
         
         sent_count = 0
@@ -763,7 +757,7 @@ class OTPBot:
             timestamp = otp_data.get("dt", "")
             
             # Create unique ID
-            unique_id = f"{phone}_{timestamp}_{hash(message_text[:50])}"
+            unique_id = f"{phone}_{timestamp}_{hash(message_text[:100])}"
             
             if unique_id not in self.processed_messages:
                 otp_code = self.extract_otp_code(message_text)
@@ -775,17 +769,17 @@ class OTPBot:
                         platform = self.detect_platform(message_text, otp_data.get("cli", ""))
                         country = self.detect_country_from_number(phone)
                         
-                        self.log(f"⚡ INSTANT: {platform} | {phone[:12]}... | {country} | OTP: {otp_code}")
+                        self.log(f"🚀 SENDING: {platform} | {phone[:15]}... | {country} | OTP: {otp_code}")
                         
                         if self.send_otp_to_telegram(message):
                             self.processed_messages.add(unique_id)
                             sent_count += 1
                             self.log(f"✅ DELIVERED")
                         
-                        time.sleep(0.3)
+                        time.sleep(0.5)
         
         if sent_count > 0:
-            self.log(f"📊 Total delivered this cycle: {sent_count}")
+            self.log(f"📊 Sent {sent_count} new OTPs")
         
         return sent_count
     
@@ -793,15 +787,14 @@ class OTPBot:
         """Send welcome message"""
         try:
             message = (
-                "🤖 *ULTIMATE OTP BOT STARTED*\n\n"
+                "🤖 *OTP BOT STARTED*\n\n"
                 "✅ Bot is now **ACTIVE**\n"
-                "⚡ *Ultra Real-time monitoring* enabled\n"
-                f"⏰ Checking every *{CONFIG['check_interval']} seconds*\n"
-                f"🌍 *{len(COUNTRIES)-1} Countries* supported\n\n"
+                f"⚡ Checking every *{CONFIG['check_interval']} seconds*\n"
+                f"🌍 *{len(COUNTRIES)-1} Countries* supported\n"
+                "🔧 Advanced API detection\n\n"
                 "🚨 **Only NEW OTPs will be sent**\n"
-                "🌍 **Country names in full English**\n\n"
-                "🔔 OTPs will appear here INSTANTLY!\n"
-                "⚡ Lightning fast delivery guaranteed"
+                "⚡ **Real-time delivery**\n\n"
+                "📡 Testing API connection..."
             )
             self.send_group_message(message)
             self.log("✅ Welcome message sent")
@@ -810,26 +803,28 @@ class OTPBot:
             self.log(f"⚠️ Welcome message error: {e}")
     
     def run(self):
-        """Main bot loop - Real-time optimized"""
+        """Main bot loop"""
         print("=" * 60)
-        print("🤖 JS OTP BOT - ULTIMATE REAL-TIME")
+        print("🤖 JS OTP BOT - FIXED API VERSION")
         print("=" * 60)
         print(f"🕐 Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-        print(f"⚡ Check interval: {CONFIG['check_interval']}s (Real-time)")
+        print(f"⚡ Check interval: {CONFIG['check_interval']}s")
         print(f"🌍 Countries supported: {len(COUNTRIES)-1}")
         print("=" * 60)
         
         # Test API connection first
-        self.log("🔍 Testing API connection...")
-        success, params = self.test_api_connection()
+        self.log("🔍 Initial API connection test...")
+        success, params = self.test_api_connection(True)
         if success:
             self.log("✅ API connection successful")
+            self.send_group_message("✅ API connection successful!")
         else:
-            self.log("⚠️ API connection test failed, but continuing...")
+            self.log("⚠️ API connection test failed")
+            self.send_group_message("⚠️ API connection test failed - Bot will still try to connect")
         
         update_thread = threading.Thread(target=self.handle_telegram_updates, daemon=True)
         update_thread.start()
-        time.sleep(1)
+        time.sleep(2)
         
         self.send_welcome_message()
         
@@ -841,19 +836,28 @@ class OTPBot:
                 check_count += 1
                 
                 if self.bot_active:
-                    self.log(f"🔄 Quick Check #{check_count}")
+                    self.log(f"🔄 Check #{check_count}")
                     sent_now = self.process_otps()
                     total_sent += sent_now
                     
-                    if sent_now == 0:
-                        self.log(f"⏳ No new OTPs, next check in {CONFIG['check_interval']}s")
+                    if sent_now == 0 and check_count % 10 == 0:
+                        self.log(f"⏳ No new OTPs in last {check_count * CONFIG['check_interval']}s")
                     
-                    # Print status every 20 checks
-                    if check_count % 20 == 0:
-                        self.log(f"📈 Stats: {total_sent} total OTPs | {len(self.processed_messages)} processed")
+                    # Re-test API if too many errors
+                    if self.api_error_count >= 5:
+                        self.log("⚠️ Too many API errors, re-testing connection...")
+                        success, params = self.test_api_connection()
+                        if success:
+                            self.log("✅ API reconnected successfully")
+                            self.api_error_count = 0
+                        else:
+                            self.log("❌ API reconnection failed")
+                    
+                    self.log(f"⏳ Next check in {CONFIG['check_interval']}s")
                 else:
                     self.log(f"⏸️ Check #{check_count} - Bot inactive")
                 
+                print("-" * 40)
                 time.sleep(CONFIG['check_interval'])
                 
         except KeyboardInterrupt:
@@ -867,16 +871,18 @@ class OTPBot:
 def main():
     """Main function"""
     print("\n" + "="*60)
-    print("JS OTP BOT - ULTIMATE REAL-TIME VERSION")
+    print("JS OTP BOT - FIXED API CONNECTION")
     print("="*60)
     print("🎯 Features:")
-    print(f"• Ultra-fast {CONFIG['check_interval']}-second checks")
+    print(f"• Check interval: {CONFIG['check_interval']}s")
     print(f"• {len(COUNTRIES)-1} Countries supported")
-    print("• Full English country names")
-    print("• Instant delivery to group")
-    print("• Real-time monitoring")
-    print("• Advanced country detection")
+    print("• Advanced API connection testing")
+    print("• Better error handling")
+    print("• Multiple API parameter attempts")
     print("="*60 + "\n")
+    
+    print("🚀 Starting bot in 3 seconds...")
+    time.sleep(3)
     
     bot = OTPBot()
     bot.run()
