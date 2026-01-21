@@ -6,23 +6,23 @@ import threading
 from datetime import datetime, timedelta
 from typing import Dict, Set, List, Optional, Tuple
 
-# Configuration - Ultra Real-time monitoring
+# Configuration - UPDATED WITH FASTER TIMING
 CONFIG = {
     "telegram_token": "8402286199:AAEwsLGs7ZcLK2lvdaiYggqn3AJQNFdV94k",
     "group_id": -1002725332877,
     "admin_user_id": 7380687709,
-    "api_url": "http://51.77.216.195/crapi/dgroup/viewstats",
+    "api_urls": [
+        "http://51.77.216.195/crapi/dgroup/viewstats",
+    ],
     "api_token": "RFRTSDRSQnd4V4BEa5Nzd4JoUV2KZpOFimOEiGFnUVhCboODgVJk",
-    "check_interval": 2,  # 2 seconds - Ultra fast!
-    "records_per_request": 50,
+    "check_interval": 10,  # 10 seconds
+    "records_per_request": 100,
     "max_retries": 2,
-    "retry_delay": 1
+    "retry_delay": 3
 }
 
-# Country data
+# Country data with FULL NAMES
 COUNTRIES = {
-    COUNTRIES = {
-    # Original countries
     "Kyrgyzstan": {"short": "KG", "flag": "🇰🇬", "full": "Kyrgyzstan"},
     "Kenya": {"short": "KE", "flag": "🇰🇪", "full": "Kenya"},
     "Nigeria": {"short": "NG", "flag": "🇳🇬", "full": "Nigeria"},
@@ -34,61 +34,7 @@ COUNTRIES = {
     "Brazil": {"short": "BR", "flag": "🇧🇷", "full": "Brazil"},
     "Russia": {"short": "RU", "flag": "🇷🇺", "full": "Russia"},
     "USA": {"short": "US", "flag": "🇺🇸", "full": "USA"},
-    
-    # Newly added countries
     "Afghanistan": {"short": "AF", "flag": "🇦🇫", "full": "Afghanistan"},
-    "Andorra": {"short": "AD", "flag": "🇦🇩", "full": "Andorra"},
-    "Angola": {"short": "AO", "flag": "🇦🇴", "full": "Angola"},
-    "Armenia": {"short": "AM", "flag": "🇦🇲", "full": "Armenia"},
-    "Azerbaijan": {"short": "AZ", "flag": "🇦🇿", "full": "Azerbaijan"},
-    "Barbados": {"short": "BB", "flag": "🇧🇧", "full": "Barbados"},
-    "Belarus": {"short": "BY", "flag": "🇧🇾", "full": "Belarus"},
-    "Belgium": {"short": "BE", "flag": "🇧🇪", "full": "Belgium"},
-    "Belize": {"short": "BZ", "flag": "🇧🇿", "full": "Belize"},
-    "Benin": {"short": "BJ", "flag": "🇧🇯", "full": "Benin"},
-    "Bhutan": {"short": "BT", "flag": "🇧🇹", "full": "Bhutan"},
-    "Bolivia": {"short": "BO", "flag": "🇧🇴", "full": "Bolivia"},
-    "Burkina Faso": {"short": "BF", "flag": "🇧🇫", "full": "Burkina Faso"},
-    "Costa Rica": {"short": "CR", "flag": "🇨🇷", "full": "Costa Rica"},
-    "Ecuador": {"short": "EC", "flag": "🇪🇨", "full": "Ecuador"},
-    "Ethiopia": {"short": "ET", "flag": "🇪🇹", "full": "Ethiopia"},
-    "Greece": {"short": "GR", "flag": "🇬🇷", "full": "Greece"},
-    "Honduras": {"short": "HN", "flag": "🇭🇳", "full": "Honduras"},
-    "Iran": {"short": "IR", "flag": "🇮🇷", "full": "Iran"},
-    "Israel": {"short": "IL", "flag": "🇮🇱", "full": "Israel"},
-    "Kazakhstan": {"short": "KZ", "flag": "🇰🇿", "full": "Kazakhstan"},
-    "Latvia": {"short": "LV", "flag": "🇱🇻", "full": "Latvia"},
-    "Lebanon": {"short": "LB", "flag": "🇱🇧", "full": "Lebanon"},
-    "Liberia": {"short": "LR", "flag": "🇱🇷", "full": "Liberia"},
-    "Libya": {"short": "LY", "flag": "🇱🇾", "full": "Libya"},
-    "Marshall Islands": {"short": "MH", "flag": "🇲🇭", "full": "Marshall Islands"},
-    "Mauritania": {"short": "MR", "flag": "🇲🇷", "full": "Mauritania"},
-    "Mauritius": {"short": "MU", "flag": "🇲🇺", "full": "Mauritius"},
-    "Mexico": {"short": "MX", "flag": "🇲🇽", "full": "Mexico"},
-    "Micronesia": {"short": "FM", "flag": "🇫🇲", "full": "Micronesia"},
-    "Moldova": {"short": "MD", "flag": "🇲🇩", "full": "Moldova"},
-    "Monaco": {"short": "MC", "flag": "🇲🇨", "full": "Monaco"},
-    "Mongolia": {"short": "MN", "flag": "🇲🇳", "full": "Mongolia"},
-    "Montenegro": {"short": "ME", "flag": "🇲🇪", "full": "Montenegro"},
-    "Morocco": {"short": "MA", "flag": "🇲🇦", "full": "Morocco"},
-    "Myanmar": {"short": "MM", "flag": "🇲🇲", "full": "Myanmar"},
-    "Nepal": {"short": "NP", "flag": "🇳🇵", "full": "Nepal"},
-    "Netherlands": {"short": "NL", "flag": "🇳🇱", "full": "Netherlands"},
-    "Norway": {"short": "NO", "flag": "🇳🇴", "full": "Norway"},
-    "Oman": {"short": "OM", "flag": "🇴🇲", "full": "Oman"},
-    "Peru": {"short": "PE", "flag": "🇵🇪", "full": "Peru"},
-    "Philippines": {"short": "PH", "flag": "🇵🇭", "full": "Philippines"},
-    "Romania": {"short": "RO", "flag": "🇷🇴", "full": "Romania"},
-    "Senegal": {"short": "SN", "flag": "🇸🇳", "full": "Senegal"},
-    "Serbia": {"short": "RS", "flag": "🇷🇸", "full": "Serbia"},
-    "Seychelles": {"short": "SC", "flag": "🇸🇨", "full": "Seychelles"},
-    "Sierra Leone": {"short": "SL", "flag": "🇸🇱", "full": "Sierra Leone"},
-    "Slovenia": {"short": "SI", "flag": "🇸🇮", "full": "Slovenia"},
-    "Solomon Islands": {"short": "SB", "flag": "🇸🇧", "full": "Solomon Islands"},
-    "Sri Lanka": {"short": "LK", "flag": "🇱🇰", "full": "Sri Lanka"},
-    "Sudan": {"short": "SD", "flag": "🇸🇩", "full": "Sudan"},
-    "Syria": {"short": "SY", "flag": "🇸🇾", "full": "Syria"},
-    "Tajikistan": {"short": "TJ", "flag": "🇹🇯", "full": "Tajikistan"},
     "Tanzania": {"short": "TZ", "flag": "🇹🇿", "full": "Tanzania"},
     "Thailand": {"short": "TH", "flag": "🇹🇭", "full": "Thailand"},
     "Togo": {"short": "TG", "flag": "🇹🇬", "full": "Togo"},
@@ -109,16 +55,15 @@ class OTPBot:
         self.bot_active = True
         self.last_api_success = None
         self.api_error_count = 0
-        self.bot_start_time = datetime.now()
+        self.current_api_index = 0
         self.session = requests.Session()
         self.session.headers.update({
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             'Accept': 'application/json, text/plain, */*',
-            'Accept-Language': 'en-US,en;q=0.9',
-            'Connection': 'keep-alive',
+            'Connection': 'keep-alive'
         })
-        self.api_params = None
-        self.last_otp_time = None
+        self.last_check_time = datetime.now()
+        self.continuous_mode = True
         
     def log(self, message: str):
         """Log messages with timestamp"""
@@ -133,9 +78,9 @@ class OTPBot:
         while True:
             try:
                 url = f"https://api.telegram.org/bot{CONFIG['telegram_token']}/getUpdates"
-                params = {"offset": offset, "timeout": 30}
+                params = {"offset": offset, "timeout": 10}
                 
-                response = requests.get(url, params=params, timeout=35)
+                response = requests.get(url, params=params, timeout=15)
                 
                 if response.status_code == 200:
                     updates = response.json().get("result", [])
@@ -153,11 +98,11 @@ class OTPBot:
                                 text = message["text"].strip()
                                 self.handle_command(text, user_id, chat_id, message_id)
                 
-                time.sleep(1)
+                time.sleep(0.5)
                 
             except Exception as e:
                 self.log(f"⚠️ Update handler error: {e}")
-                time.sleep(2)
+                time.sleep(3)
     
     def handle_command(self, command: str, user_id: int, chat_id: int, message_id: int = None):
         """Handle bot commands"""
@@ -167,8 +112,7 @@ class OTPBot:
             if user_id == CONFIG["admin_user_id"]:
                 if not self.bot_active:
                     self.bot_active = True
-                    self.bot_start_time = datetime.now()
-                    self.send_group_message("✅ Bot Started - Ultra Fast Mode!", reply_to=message_id)
+                    self.send_group_message("🚀 Bot Started", reply_to=message_id)
                     self.log(f"Bot activated by admin {user_id}")
                 else:
                     self.send_group_message("Bot is already active", reply_to=message_id)
@@ -179,7 +123,7 @@ class OTPBot:
             if user_id == CONFIG["admin_user_id"]:
                 if self.bot_active:
                     self.bot_active = False
-                    self.send_group_message("❌ Bot Stopped", reply_to=message_id)
+                    self.send_group_message("🛑 Bot Stopped", reply_to=message_id)
                     self.log(f"Bot deactivated by admin {user_id}")
                 else:
                     self.send_group_message("Bot is already inactive", reply_to=message_id)
@@ -189,36 +133,40 @@ class OTPBot:
         elif command == "/status":
             status = "🟢 ACTIVE" if self.bot_active else "🔴 INACTIVE"
             last_check = f"Last API: {self.last_api_success}" if self.last_api_success else "API: Never"
-            bot_uptime = (datetime.now() - self.bot_start_time).seconds
-            uptime_str = f"{bot_uptime // 3600}h {(bot_uptime % 3600) // 60}m {bot_uptime % 60}s"
-            message = (
-                f"🤖 *BOT STATUS*\n\n"
-                f"{status}\n"
-                f"⏰ Uptime: {uptime_str}\n"
-                f"📊 Processed: {len(self.processed_messages)}\n"
-                f"📡 {last_check}\n"
-                f"🌍 Countries: {len(COUNTRIES)-1} supported\n"
-                f"⚡ Real-time: Every {CONFIG['check_interval']}s\n"
-                f"🔧 Mode: Ultra Fast"
-            )
+            mode = "⚡ FAST MODE" if self.continuous_mode else "🐢 NORMAL MODE"
+            message = f"🤖 BOT STATUS\n\n{status}\n{mode}\n{last_check}"
             self.send_group_message(message, reply_to=message_id)
                 
         elif command == "/clear":
             if user_id == CONFIG["admin_user_id"]:
                 self.processed_messages.clear()
-                self.bot_start_time = datetime.now()
-                self.send_group_message("✅ Cache cleared - Ready for new OTPs", reply_to=message_id)
+                self.send_group_message("🧹 Cache cleared", reply_to=message_id)
                 self.log("Cleared processed messages cache")
-                
+        
         elif command == "/fast":
             if user_id == CONFIG["admin_user_id"]:
-                CONFIG["check_interval"] = 2
-                self.send_group_message(f"✅ Ultra Fast Mode - Checking every {CONFIG['check_interval']}s", reply_to=message_id)
+                self.continuous_mode = True
+                CONFIG["check_interval"] = 5
+                self.send_group_message("⚡ Fast mode activated", reply_to=message_id)
                 
-        elif command == "/slow":
+        elif command == "/normal":
             if user_id == CONFIG["admin_user_id"]:
+                self.continuous_mode = False
                 CONFIG["check_interval"] = 10
-                self.send_group_message(f"✅ Slow Mode - Checking every {CONFIG['check_interval']}s", reply_to=message_id)
+                self.send_group_message("🐢 Normal mode activated", reply_to=message_id)
+        
+        elif command == "/countries":
+            countries_list = []
+            for i, (name, info) in enumerate(COUNTRIES.items()):
+                if name != "Unknown":
+                    countries_list.append(f"{info['flag']} {name}")
+            
+            # Split into chunks of 8 countries each
+            chunks = [countries_list[i:i + 8] for i in range(0, len(countries_list), 8)]
+            
+            for chunk in chunks:
+                message = "🌍 **Supported Countries:**\n" + "\n".join(chunk)
+                self.send_group_message(message, reply_to=message_id)
     
     def send_group_message(self, message: str, reply_to: int = None):
         """Send message to Telegram group"""
@@ -240,140 +188,71 @@ class OTPBot:
             self.log(f"Telegram send error: {e}")
             return False
     
-    def test_api_connection(self):
-        """Test API connection quickly"""
-        self.log("🔍 Quick API test...")
-        
-        # Quick test with minimal parameters
-        test_params = {"token": CONFIG["api_token"]}
-        
-        try:
-            response = self.session.post(CONFIG["api_url"], data=test_params, timeout=5)
-            
-            if response.status_code == 200:
-                try:
-                    data = json.loads(response.text)
-                    self.log(f"✅ API OK - Status: {response.status_code}")
-                    self.api_params = {"method": "POST", "data": test_params}
-                    return True, test_params
-                except:
-                    self.log(f"⚠️ API responded but not JSON")
-                    self.api_params = {"method": "POST", "data": test_params}
-                    return True, test_params
-            else:
-                self.log(f"❌ API error: {response.status_code}")
-                return False, None
-                
-        except Exception as e:
-            self.log(f"❌ API test error: {e}")
-            return False, None
-    
     def get_otps_from_api(self) -> List[Dict]:
-        """Fetch OTPs from API - Ultra fast version"""
-        if not self.bot_active:
-            return []
+        """Fetch OTPs from API"""
+        current_url = CONFIG["api_urls"][self.current_api_index]
         
-        # If no API params, test quickly
-        if not self.api_params:
-            success, params = self.test_api_connection()
-            if not success:
-                return []
+        self.log(f"📡 Checking API...")
         
         try:
-            # Check only last 30 seconds for ultra freshness
-            dt2 = datetime.now()
-            dt1 = dt2 - timedelta(seconds=30)
-            
             params = {
                 "token": CONFIG["api_token"],
-                "dt1": dt1.strftime("%Y-%m-%d %H:%M:%S"),
-                "dt2": dt2.strftime("%Y-%m-%d %H:%M:%S"),
-                "records": 20  # Small batch for speed
+                "records": CONFIG["records_per_request"]
             }
             
-            # Ultra fast request
-            start_time = time.time()
-            response = self.session.post(CONFIG["api_url"], data=params, timeout=5)
-            response_time = time.time() - start_time
-            
-            if response_time > 1:
-                self.log(f"⚠️ Slow API: {response_time:.2f}s")
+            response = self.session.post(current_url, data=params, timeout=8)
             
             if response.status_code == 200:
-                self.last_api_success = datetime.now().strftime("%H:%M:%S")
-                self.api_error_count = 0
+                response_text = response.text.strip()
+                
+                if "too many times" in response_text:
+                    self.log(f"⚠️ Rate limited")
+                    time.sleep(2)
+                    return []
                 
                 try:
-                    data = json.loads(response.text)
+                    data = json.loads(response_text)
                     
-                    records = []
-                    if isinstance(data, dict):
-                        if data.get("status") == "success" and isinstance(data.get("data"), list):
-                            records = data["data"]
-                        elif "data" in data and isinstance(data["data"], list):
-                            records = data["data"]
-                    elif isinstance(data, list):
-                        records = data
-                    
-                    if records:
-                        self.log(f"✅ Found {len(records)} fresh records ({response_time:.2f}s)")
-                        return self.filter_new_records(records)
+                    if isinstance(data, dict) and data.get("status") == "success":
+                        records = data.get("data", [])
+                        if records:
+                            self.log(f"✅ Found {len(records)} records")
+                        self.last_api_success = datetime.now().strftime("%H:%M:%S")
+                        self.api_error_count = 0
+                        return records
                     else:
                         return []
                         
                 except json.JSONDecodeError:
-                    self.log("⚠️ API response not JSON")
+                    self.api_error_count += 1
                     return []
-            
             else:
-                self.log(f"❌ API error: {response.status_code}")
                 self.api_error_count += 1
                 return []
                 
         except Exception as e:
-            self.log(f"❌ API error: {e}")
+            self.log(f"❌ API Error: {type(e).__name__}")
             self.api_error_count += 1
             return []
     
-    def filter_new_records(self, records: List[Dict]) -> List[Dict]:
-        """Filter only new records"""
-        filtered = []
-        
-        for record in records:
-            record_time_str = record.get("dt", "")
-            message_text = record.get("message", "")
-            phone = record.get("num", "")
-            
-            # Create super fast unique ID
-            if message_text and phone:
-                unique_id = f"{phone}_{hash(message_text[:50])}"
-            else:
-                continue
-            
-            if unique_id not in self.processed_messages:
-                filtered.append(record)
-        
-        return filtered
-    
     def detect_country_from_number(self, phone_number: str) -> str:
-        """Fast country detection"""
+        """Detect country from phone number"""
         if not phone_number or phone_number == "Unknown":
             return "Unknown"
             
         num_str = str(phone_number).strip()
         
-        if num_str.startswith('+'):
-            num_str = num_str[1:]
+        # Remove any non-digit characters
+        num_str = ''.join(filter(str.isdigit, num_str))
         
-        digits = ''.join(filter(str.isdigit, num_str))
-        
-        if not digits:
+        if not num_str:
             return "Unknown"
         
-        # Fast prefix check for common countries
+        # Country prefixes
         prefixes = {
             '996': 'Kyrgyzstan',
             '254': 'Kenya',
+            '91': 'India',
             '234': 'Nigeria',
             '92': 'Pakistan',
             '880': 'Bangladesh',
@@ -381,109 +260,92 @@ class OTPBot:
             '84': 'Vietnam',
             '55': 'Brazil',
             '7': 'Russia',
-            '20': 'Egypt',
-            '33': 'France',
-            '34': 'Spain',
-            '44': 'UK',
-            '49': 'Germany',
-            '86': 'China',
-            '90': 'Turkey',
+            '1': 'USA',
             '93': 'Afghanistan',
-            '94': 'Sri Lanka',
-            '95': 'Myanmar',
-            '98': 'Iran',
-            '212': 'Morocco',
-            '213': 'Algeria',
-            '216': 'Tunisia',
-            '218': 'Libya',
-            '220': 'Gambia',
-            '221': 'Senegal',
-            '222': 'Mauritania',
-            '223': 'Mali',
-            '224': 'Guinea',
-            '225': 'Ivory Coast',
-            '226': 'Burkina Faso',
-            '227': 'Niger',
-            '228': 'Togo',
-            '229': 'Benin',
-            '230': 'Mauritius',
-            '231': 'Liberia',
-            '232': 'Sierra Leone',
-            '233': 'Ghana',
-            '234': 'Nigeria',
-            '235': 'Chad',
-            '236': 'Central African Republic',
-            '237': 'Cameroon',
-            '239': 'Sao Tome and Principe',
-            '240': 'Equatorial Guinea',
-            '241': 'Gabon',
-            '242': 'Republic of the Congo',
-            '243': 'DR Congo',
-            '244': 'Angola',
-            '245': 'Guinea-Bissau',
-            '246': 'British Indian Ocean Territory',
-            '247': 'Ascension Island',
-            '248': 'Seychelles',
-            '249': 'Sudan',
-            '250': 'Rwanda',
-            '251': 'Ethiopia',
-            '252': 'Somalia',
-            '253': 'Djibouti',
-            '254': 'Kenya',
             '255': 'Tanzania',
-            '256': 'Uganda',
-            '257': 'Burundi',
-            '258': 'Mozambique',
-            '260': 'Zambia',
-            '261': 'Madagascar',
-            '262': 'Reunion',
-            '263': 'Zimbabwe',
-            '264': 'Namibia',
-            '265': 'Malawi',
-            '266': 'Lesotho',
-            '267': 'Botswana',
-            '268': 'Swaziland',
-            '269': 'Comoros',
-            '290': 'Saint Helena',
-            '291': 'Eritrea',
-            '297': 'Aruba',
-            '298': 'Faroe Islands',
-            '299': 'Greenland'
+            '66': 'Thailand',
+            '228': 'Togo',
+            '216': 'Tunisia',
+            '598': 'Uruguay',
+            '998': 'Uzbekistan',
+            '678': 'Vanuatu',
+            '379': 'Vatican City',
+            '58': 'Venezuela',
+            '967': 'Yemen',
+            '260': 'Zambia'
         }
         
         for prefix, country in prefixes.items():
-            if digits.startswith(prefix):
+            if num_str.startswith(prefix):
                 return country
         
         return "Unknown"
     
     def extract_otp_code(self, message: str) -> str:
-        """Fast OTP extraction"""
+        """Extract OTP code from message - FIXED FOR WHATSAPP"""
         if not message:
             return "N/A"
         
-        message = ' '.join(message.split())
+        # 🔴 FIRST PRIORITY: WhatsApp Business OTP (848-843 format)
+        # WhatsApp messages like: "# Kode WhatsApp Business 848-843"
+        # or "Your WhatsApp code: 848-843"
         
-        # Fast patterns
+        whatsapp_patterns = [
+            r'WhatsApp Business[\s:]*(\d{3}[-]?\d{3})',
+            r'Kode WhatsApp[\s:]*(\d{3}[-]?\d{3})',
+            r'WhatsApp code[\s:]*(\d{3}[-]?\d{3})',
+            r'kode WhatsApp[\s:]*(\d{3}[-]?\d{3})',
+            r'code WhatsApp[\s:]*(\d{3}[-]?\d{3})',
+            r'(\d{3}[-]\d{3})[\s]*WhatsApp',
+            r'WhatsApp[\s:]*(\d{3}[-]?\d{3})',
+            r'(\d{6})[\s]*WhatsApp',  # 848843 without dash
+        ]
+        
+        for pattern in whatsapp_patterns:
+            matches = re.findall(pattern, message, re.IGNORECASE)
+            if matches:
+                code = matches[0]
+                # Remove dash if present
+                code = code.replace("-", "")
+                self.log(f"✅ Found WhatsApp OTP: {code}")
+                return code
+        
+        # 🔴 SECOND PRIORITY: Standard OTP patterns
         patterns = [
-            r'(\d{3}[-]?\d{3})',
-            r'\b\d{4,8}\b',
+            r'\b\d{4,8}\b',  # Standalone 4-8 digits
             r'code[\s:]*[#]?(\d{4,8})',
+            r'kode[\s:]*[#]?(\d{4,8})',
             r'otp[\s:]*[#]?(\d{4,8})',
+            r'verification[\s:]*[#]?(\d{4,8})',
+            r'password[\s:]*[#]?(\d{4,8})',
+            r'pin[\s:]*[#]?(\d{4,8})',
+            r'(\d{4,8})[\s]*is[\s]*your',
+            r'your[\s]*code[\s]*is[\s]*(\d{4,8})',
+            r'code[\s:]*(\d{4,8})',
+            r'kode[\s:]*(\d{4,8})',
         ]
         
         for pattern in patterns:
             matches = re.findall(pattern, message, re.IGNORECASE)
             if matches:
                 code = matches[0]
-                code = ''.join(filter(str.isdigit, str(code)))
-                if 4 <= len(code) <= 8:
-                    return code
+                self.log(f"✅ Found standard OTP: {code}")
+                return code
         
+        # 🔴 THIRD PRIORITY: Any 3-8 digit number
+        all_numbers = re.findall(r'\d+', message)
+        for num in all_numbers:
+            if 3 <= len(num) <= 8:
+                # Exclude phone numbers and dates
+                if not (len(num) >= 10 or num in ['2026', '2025', '2024', '2023', '2022']):
+                    self.log(f"✅ Found potential OTP: {num}")
+                    return num
+        
+        self.log(f"❌ No OTP found")
         return "N/A"
     
     def format_phone_number(self, phone_number: str) -> str:
-        """Fast phone formatting"""
+        """Format phone number for display"""
         if not phone_number or phone_number == "Unknown":
             return "N/A"
         
@@ -492,58 +354,95 @@ class OTPBot:
         if not digits:
             return "N/A"
         
-        if len(digits) >= 10:
-            return f"{digits[:4]}****{digits[-4:]}"
-        else:
+        if len(digits) >= 9:
+            return f"{digits[:5]}****{digits[-4:]}"
+        elif 6 <= len(digits) <= 8:
             return f"{digits[:3]}****{digits[-3:]}"
+        else:
+            if len(digits) > 4:
+                return f"{digits[:2]}****{digits[-2:]}"
+            return digits
     
     def detect_platform(self, message: str, cli: str = "") -> str:
-        """Fast platform detection"""
+        """Detect platform from message and CLI"""
         message_lower = message.lower()
+        cli_lower = cli.lower() if cli else ""
         
-        if 'whatsapp' in message_lower:
+        # WhatsApp detection (highest priority)
+        if 'whatsapp' in cli_lower or 'wa' in cli_lower:
             return "WhatsApp"
-        elif 'facebook' in message_lower or 'fb' in message_lower:
+        
+        if 'whatsapp' in message_lower or 'wa' in message_lower:
+            return "WhatsApp"
+        
+        # Check for WhatsApp code pattern in message
+        if re.search(r'\d{3}[-]?\d{3}.*whatsapp', message_lower) or \
+           re.search(r'whatsapp.*\d{3}[-]?\d{3}', message_lower):
+            return "WhatsApp"
+        
+        # Other platforms
+        if 'facebook' in cli_lower or 'fb' in cli_lower:
+            return "Facebook"
+        elif 'telegram' in cli_lower or 'tg' in cli_lower:
+            return "Telegram"
+        elif 'google' in cli_lower or 'gmail' in cli_lower:
+            return "Google"
+        elif 'instagram' in cli_lower or 'insta' in cli_lower:
+            return "Instagram"
+        
+        if 'facebook' in message_lower or 'fb' in message_lower:
             return "Facebook"
         elif 'telegram' in message_lower or 'tg' in message_lower:
             return "Telegram"
         elif 'google' in message_lower or 'gmail' in message_lower:
             return "Google"
-        elif 'instagram' in message_lower:
+        elif 'instagram' in message_lower or 'insta' in message_lower:
             return "Instagram"
         else:
             return "SMS"
     
     def create_otp_message(self, otp_data: Dict) -> Optional[str]:
-        """Create ultra fast formatted OTP message"""
+        """Create formatted OTP message with FULL COUNTRY NAMES"""
         try:
             phone = otp_data.get("num", "")
+            cli = otp_data.get("cli", "")
             message_text = otp_data.get("message", "")
             timestamp = otp_data.get("dt", "")
             
             if not message_text:
                 return None
             
+            # 🔴 Extract OTP code
             otp_code = self.extract_otp_code(message_text)
             
             if otp_code == "N/A":
                 return None
             
-            platform = self.detect_platform(message_text)
+            # Detect platform
+            platform = self.detect_platform(message_text, cli)
+            
+            # 🔴 Detect country with FULL NAME
             country = self.detect_country_from_number(phone)
             country_info = COUNTRIES.get(country, COUNTRIES["Unknown"])
+            
+            # 🔴 Use FULL country name from dictionary
+            country_name = country_info["full"]
+            country_flag = country_info["flag"]
+            country_code = country_info["short"]
+            
             formatted_phone = self.format_phone_number(phone)
             
-            # ALWAYS show seconds only - never minutes
-            freshness = "Just now"
+            # Format timestamp
             if timestamp:
                 try:
                     msg_time = datetime.strptime(timestamp, "%Y-%m-%d %H:%M:%S")
-                    seconds_ago = (datetime.now() - msg_time).seconds
-                    freshness = f"Just now ({seconds_ago}s ago)"
+                    time_str = msg_time.strftime("%I:%M %p")
                 except:
-                    pass
+                    time_str = datetime.now().strftime("%I:%M %p")
+            else:
+                time_str = datetime.now().strftime("%I:%M %p")
             
+            # Platform emoji
             platform_emoji = {
                 "WhatsApp": "📱",
                 "Facebook": "👤",
@@ -553,26 +452,37 @@ class OTPBot:
                 "SMS": "💬"
             }.get(platform, "📲")
             
+            # Special formatting for WhatsApp
+            if platform == "WhatsApp":
+                platform_display = "WhatsApp Business"
+            else:
+                platform_display = platform
+            
+            # Clean message
+            cleaned_message = message_text.replace('\n\n', '\n').strip()
+            
+            # 🔴 Create message with FULL COUNTRY NAME
             formatted_message = (
                 f"══════════════════════\n"
-                f"    🚨 *LIVE OTP RECEIVED* 🚨\n"
+                f"    🚨 *NEW OTP RECEIVED* 🚨\n"
                 f"══════════════════════\n\n"
-                f"{platform_emoji} *Platform:* {platform}\n"
-                f"📞 *Number:* `{formatted_phone}`\n"
-                f"🌍 *Country:* {country_info['flag']} {country_info['full']}\n"
-                f"⚡ *Freshness:* {freshness}\n\n"
+                f"{platform_emoji} *Platform:* {platform_display}\n"
+                f"📱 *Number:* `{formatted_phone}`\n"
+                f"🌍 *Country:* {country_flag} {country_name} (#{country_code})\n"
+                f"⏰ *Time:* {time_str}\n\n"
                 f"🔐 *OTP Code:* `{otp_code}`\n\n"
-                f"📝 *Message:*\n"
-                f"`{message_text[:120]}{'...' if len(message_text) > 120 else ''}`"
+                f"💬 *Message:*\n"
+                f"`{cleaned_message}`"
             )
             
             return formatted_message
             
         except Exception as e:
+            self.log(f"❌ Error creating message: {e}")
             return None
     
     def send_otp_to_telegram(self, message: str) -> bool:
-        """Fast Telegram sending"""
+        """Send OTP message to Telegram"""
         try:
             url = f"https://api.telegram.org/bot{CONFIG['telegram_token']}/sendMessage"
             
@@ -593,18 +503,14 @@ class OTPBot:
                 "disable_web_page_preview": True
             }
             
-            response = requests.post(url, json=payload, timeout=5)
-            
-            if response.status_code == 200:
-                return True
-            else:
-                return False
+            response = requests.post(url, json=payload, timeout=8)
+            return response.status_code == 200
                 
         except Exception as e:
             return False
     
     def process_otps(self):
-        """Ultra fast OTP processing"""
+        """Process OTPs"""
         if not self.bot_active:
             return 0
         
@@ -613,75 +519,74 @@ class OTPBot:
         if not otp_list:
             return 0
         
+        self.log(f"📨 Processing {len(otp_list)} messages")
         sent_count = 0
         
         for otp_data in otp_list:
             message_text = otp_data.get("message", "")
             phone = otp_data.get("num", "")
+            cli = otp_data.get("cli", "")
             timestamp = otp_data.get("dt", "")
             
-            unique_id = f"{phone}_{hash(message_text[:50])}"
+            # Create unique ID
+            unique_id = f"{phone}_{message_text}_{timestamp}"
             
             if unique_id not in self.processed_messages:
-                otp_code = self.extract_otp_code(message_text)
+                # Create and send message
+                message = self.create_otp_message(otp_data)
                 
-                if otp_code != "N/A":
-                    message = self.create_otp_message(otp_data)
+                if message:
+                    # Extract OTP for logging
+                    otp_code = self.extract_otp_code(message_text)
+                    platform = self.detect_platform(message_text, cli)
+                    country = self.detect_country_from_number(phone)
                     
-                    if message:
-                        platform = self.detect_platform(message_text)
-                        country = self.detect_country_from_number(phone)
-                        
-                        # Show in logs
-                        time_str = datetime.now().strftime("%H:%M:%S")
-                        print(f"[{time_str}] 🚀 INSTANT: {platform} | {country} | OTP: {otp_code}")
-                        
-                        if self.send_otp_to_telegram(message):
-                            self.processed_messages.add(unique_id)
-                            sent_count += 1
-                            self.last_otp_time = datetime.now()
-                        
-                        # Tiny delay
-                        time.sleep(0.1)
+                    self.log(f"  ✅ {platform} | {country} | {phone} | OTP: {otp_code}")
+                    
+                    if self.send_otp_to_telegram(message):
+                        self.processed_messages.add(unique_id)
+                        sent_count += 1
+                        self.log(f"  📤 Sent to Telegram")
+                    else:
+                        self.log(f"  ❌ Failed to send")
+                    
+                    time.sleep(1)
         
         return sent_count
     
     def send_welcome_message(self):
         """Send welcome message"""
         try:
-            message = (
-                "🤖 *ULTRA FAST OTP BOT STARTED*\n\n"
-                "✅ Bot is now **ACTIVE**\n"
-                f"⚡ *Ultra Fast Mode*: Every {CONFIG['check_interval']}s\n"
-                f"🌍 *{len(COUNTRIES)-1} Countries* supported\n\n"
-                "🚨 **Only FRESH OTPs will be sent**\n"
-                "⚡ **Freshness shown in SECONDS only**\n"
-                "🔥 **Instant delivery guaranteed**"
+            welcome_msg = (
+                "🤖 *JS OTP BOT STARTED*\n\n"
+                "✅ *Features:*\n"
+                "• ⚡ Fast OTP delivery (5-10 seconds)\n"
+                "• 🌍 Full country names\n"
+                "• 📱 WhatsApp OTP support\n"
+                "• 🔍 Smart OTP detection\n\n"
+                "📋 *Commands:*\n"
+                "/on - Start bot\n"
+                "/off - Stop bot\n"
+                "/status - Check status\n"
+                "/fast - Fast mode (5s)\n"
+                "/normal - Normal mode (10s)\n"
+                "/countries - Show supported countries"
             )
-            self.send_group_message(message)
+            self.send_group_message(welcome_msg)
             self.log("✅ Welcome message sent")
             
         except Exception as e:
             self.log(f"⚠️ Welcome message error: {e}")
     
     def run(self):
-        """Main bot loop - Ultra fast"""
+        """Main bot loop"""
         print("=" * 60)
-        print("🤖 ULTRA FAST OTP BOT")
+        print("🤖 JS OTP BOT - ENHANCED VERSION")
         print("=" * 60)
-        print(f"🕐 Started: {datetime.now().strftime('%H:%M:%S')}")
-        print(f"⚡ Check interval: {CONFIG['check_interval']}s")
-        print(f"🌍 Countries: {len(COUNTRIES)-1}")
-        print("🔥 Mode: Ultra Fast")
+        print(f"🕐 Started: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print(f"⚡ Mode: Fast (Check every {CONFIG['check_interval']}s)")
+        print(f"🌍 Countries: {len(COUNTRIES)-1} supported")
         print("=" * 60)
-        
-        # Quick API test
-        self.log("🔍 Quick API test...")
-        success, params = self.test_api_connection()
-        if success:
-            self.log("✅ API connected")
-        else:
-            self.log("⚠️ API test failed")
         
         update_thread = threading.Thread(target=self.handle_telegram_updates, daemon=True)
         update_thread.start()
@@ -697,36 +602,39 @@ class OTPBot:
                 check_count += 1
                 
                 if self.bot_active:
-                    # Super fast check
+                    self.log(f"🔄 Check #{check_count}")
                     sent_now = self.process_otps()
                     total_sent += sent_now
                     
-                    # Minimal logging
-                    if check_count % 30 == 0:  # Every minute
-                        self.log(f"📊 Running: {check_count} checks, {total_sent} OTPs sent")
+                    if sent_now > 0:
+                        self.log(f"📤 Sent {sent_now} messages (Total: {total_sent})")
+                    
+                    sleep_time = 5 if self.continuous_mode else CONFIG["check_interval"]
+                    self.log(f"⏳ Next check in {sleep_time}s")
+                    time.sleep(sleep_time)
                 else:
-                    if check_count % 60 == 0:
-                        self.log(f"⏸️ Bot inactive")
-                
-                # Ultra fast sleep
-                time.sleep(CONFIG['check_interval'])
+                    self.log(f"⏸️ Bot inactive")
+                    time.sleep(10)
                 
         except KeyboardInterrupt:
-            self.log("🛑 Bot stopped")
-            self.send_group_message("❌ Bot Stopped")
+            self.log("🛑 Bot stopped manually")
+            self.send_group_message("🛑 Bot Stopped")
         except Exception as e:
-            self.log(f"💥 Error: {e}")
+            self.log(f"💥 Fatal error: {e}")
+            import traceback
+            traceback.print_exc()
 
 def main():
     """Main function"""
     print("\n" + "="*60)
-    print("ULTRA FAST OTP BOT")
+    print("JS OTP BOT - ENHANCED VERSION")
     print("="*60)
-    print("⚡ Features:")
-    print(f"• Ultra Fast: {CONFIG['check_interval']}s checks")
-    print("• Freshness in SECONDS only")
-    print("• Instant delivery")
-    print("• Minimal processing delay")
+    print("🎯 **ENHANCED FEATURES:**")
+    print("• 🌍 FULL Country names in messages")
+    print("• 📱 WhatsApp OTP detection (848-843 format)")
+    print("• ⚡ OTPs delivered in 5-10 seconds")
+    print("• 🇰🇬 23+ countries supported")
+    print("• 📊 Better OTP extraction")
     print("="*60 + "\n")
     
     bot = OTPBot()
