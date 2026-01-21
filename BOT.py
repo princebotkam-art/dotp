@@ -25,14 +25,8 @@ COUNTRIES = {
     "Kyrgyzstan": {"short": "KG", "flag": "🇰🇬", "full": "Kyrgyzstan"},
     "Kenya": {"short": "KE", "flag": "🇰🇪", "full": "Kenya"},
     "Nigeria": {"short": "NG", "flag": "🇳🇬", "full": "Nigeria"},
-    "India": {"short": "IN", "flag": "🇮🇳", "full": "India"},
-    "Pakistan": {"short": "PK", "flag": "🇵🇰", "full": "Pakistan"},
-    "Bangladesh": {"short": "BD", "flag": "🇧🇩", "full": "Bangladesh"},
-    "Indonesia": {"short": "ID", "flag": "🇮🇩", "full": "Indonesia"},
     "Vietnam": {"short": "VN", "flag": "🇻🇳", "full": "Vietnam"},
-    "Brazil": {"short": "BR", "flag": "🇧🇷", "full": "Brazil"},
     "Russia": {"short": "RU", "flag": "🇷🇺", "full": "Russia"},
-    "USA": {"short": "US", "flag": "🇺🇸", "full": "USA"},
     
     # Newly added countries
     "Afghanistan": {"short": "AF", "flag": "🇦🇫", "full": "Afghanistan"},
