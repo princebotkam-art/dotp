@@ -24,9 +24,9 @@ def run_web_server():
 
 # Configuration - UPDATED WITH FASTER TIMING
 CONFIG = {
-    "telegram_token": "8402286199:AAEwsLGs7ZcLK2lvdaiYggqn3AJQNFdV94k",
-    "group_id": -1002725332877,
-    "admin_user_id": 7380687709,
+    "telegram_token": "8073903913:AAEzVlCNlr-fnjQfOukl3sBdwvnJqepjYAY",
+    "group_id": -1003868394296,
+    "admin_user_id": 7013727523,
     "api_urls": [
         "http://51.77.216.195/crapi/dgroup/viewstats",
     ],
