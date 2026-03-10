@@ -6,6 +6,22 @@ import threading
 from datetime import datetime, timedelta
 from typing import Dict, Set, List, Optional, Tuple
 
+# ==================== RENDER WEB SERVICE FIX ====================
+from flask import Flask
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "🤖 JS OTP Bot is running!"
+
+def run_web_server():
+    """Run Flask server for Render port binding"""
+    port = int(os.environ.get('PORT', 10000))
+    app.run(host='0.0.0.0', port=port)
+# ==================== END RENDER FIX ====================
+
 # Configuration - UPDATED WITH FASTER TIMING
 CONFIG = {
     "telegram_token": "8402286199:AAEwsLGs7ZcLK2lvdaiYggqn3AJQNFdV94k",
@@ -636,6 +652,12 @@ def main():
     print("• 🇰🇬 23+ countries supported")
     print("• 📊 Better OTP extraction")
     print("="*60 + "\n")
+    
+    # ==================== START FLASK SERVER IN BACKGROUND ====================
+    flask_thread = threading.Thread(target=run_web_server, daemon=True)
+    flask_thread.start()
+    print("🌐 Flask web server started for Render port binding")
+    # ==================== END FLASK SERVER ====================
     
     bot = OTPBot()
     bot.run()
