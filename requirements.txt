@@ -1,4 +1,5 @@
 requests==2.31.0
+flask
 python-telegram-bot==20.7
 aiohttp==3.9.1
 PySocks==1.7.1
